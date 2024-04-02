@@ -1,0 +1,12 @@
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.deps.json
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.dll
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.pdb
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.AssemblyInfoInputs.cache
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.AssemblyInfo.cs
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.csproj.CoreCompileInputs.cache
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.sourcelink.json
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.dll
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\refint\MultiCloudAISelectionPlatform.Common.dll
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Common.pdb
+C:\Users\marku\source\repos\DFMaaS\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Common\obj\Debug\net8.0\ref\MultiCloudAISelectionPlatform.Common.dll
