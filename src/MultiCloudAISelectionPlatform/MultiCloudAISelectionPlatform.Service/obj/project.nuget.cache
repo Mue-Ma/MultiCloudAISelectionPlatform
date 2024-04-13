@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XOPcZ/TmbC82Z2uGILbnTGj9zLPF04/7g7KF84MaytVyvjTb1fizSRHoUyGQ6dSudfBjXn64QoRSVD++EM6B9w==",
+  "dgSpecHash": "P4ifaMoPmXb0wSflWKPP9lMU9CdDc14nLHGbvsOvurFvv1ZjWVPlsmuiYbiYOSnMc59h6TJq2JiUC3Oa0jNBBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marku\\source\\repos\\MultiCloudAISelectionPlatform\\src\\MultiCloudAISelectionPlatform\\MultiCloudAISelectionPlatform.Service\\MultiCloudAISelectionPlatform.Service.csproj",
+  "projectFilePath": "C:\\Privat\\SoftwareBusiness\\src\\MultiCloudAISelectionPlatform\\MultiCloudAISelectionPlatform.Service\\MultiCloudAISelectionPlatform.Service.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\marku\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512"
+    "C:\\Users\\ChristinaNiederer\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512"
   ],
   "logs": []
 }
