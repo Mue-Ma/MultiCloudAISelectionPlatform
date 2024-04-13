@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MultiCloudAISelectionPlatform.Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a184bbc04df1859194d0f50bb741a59dd4511666")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23360aea8b6cd8ffda9ce5c4c7b65b15efb73e5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MultiCloudAISelectionPlatform.Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MultiCloudAISelectionPlatform.Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,16 @@
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.deps.json
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.dll
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.pdb
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.dll
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.pdb
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.csproj.AssemblyReference.cache
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.AssemblyInfoInputs.cache
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.AssemblyInfo.cs
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.csproj.CoreCompileInputs.cache
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.sourcelink.json
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.csproj.CopyComplete
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.dll
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\refint\MultiCloudAISelectionPlatform.Logic.dll
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.pdb
+C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Logic\obj\Debug\net8.0\ref\MultiCloudAISelectionPlatform.Logic.dll

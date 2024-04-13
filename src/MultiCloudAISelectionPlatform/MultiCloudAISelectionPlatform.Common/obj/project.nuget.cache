@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tNQVDayHJDXhi81icQUmR1WrdLwtrBdLrdjhLITNAzYRwdEZx0Rhy6bDdTGBrozl0RblENM9oqrhqmzB3kGQpA==",
+  "dgSpecHash": "69C++lqdhZpi2tSyd53G2rIiF2CoLrWp9G0BJXlG+AI6kokBVgKFsFDXgJEpWM3ZW3zyJJnI0ib5mi1gjgjrNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marku\\source\\repos\\DFMaaS\\src\\MultiCloudAISelectionPlatform\\MultiCloudAISelectionPlatform.Common\\MultiCloudAISelectionPlatform.Common.csproj",
+  "projectFilePath": "C:\\Users\\marku\\source\\repos\\MultiCloudAISelectionPlatform\\src\\MultiCloudAISelectionPlatform\\MultiCloudAISelectionPlatform.Common\\MultiCloudAISelectionPlatform.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>2a42ac64-f8f5-4083-aba0-14d4a47a8a29</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiCloudAISelectionPlatform.Common\MultiCloudAISelectionPlatform.Common.csproj" />
+    <ProjectReference Include="..\MultiCloudAISelectionPlatform.Logic\MultiCloudAISelectionPlatform.Logic.csproj" />
+  </ItemGroup>
+
+</Project>

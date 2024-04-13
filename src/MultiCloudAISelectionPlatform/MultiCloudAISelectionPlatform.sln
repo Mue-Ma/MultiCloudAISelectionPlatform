@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.Common", "MultiCloudAISelectionPlatform.Common\MultiCloudAISelectionPlatform.Common.csproj", "{F7D4A0B7-BFF6-4394-A5B3-D69E41A96747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiCloudAISelectionPlatform.Common", "MultiCloudAISelectionPlatform.Common\MultiCloudAISelectionPlatform.Common.csproj", "{F7D4A0B7-BFF6-4394-A5B3-D69E41A96747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.MetricsService", "MultiCloudAISelectionPlatform.MetricsService\MultiCloudAISelectionPlatform.MetricsService.csproj", "{AA814E18-FAE0-41B4-8BAF-F8D035B5D557}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.Service", "MultiCloudAISelectionPlatform.Service\MultiCloudAISelectionPlatform.Service.csproj", "{1D5DFF98-B0F6-4409-BB63-1A2C27689B40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.SelectionService", "MultiCloudAISelectionPlatform.SelectionService\MultiCloudAISelectionPlatform.SelectionService.csproj", "{F1D40A56-7450-426B-A14A-57E953B286EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.Logic", "MultiCloudAISelectionPlatform.Logic\MultiCloudAISelectionPlatform.Logic.csproj", "{F870679C-ADE5-4FBA-B993-E84402047E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCloudAISelectionPlatform.TestConsole", "MultiCloudAISelectionPlatform.TestConsole\MultiCloudAISelectionPlatform.TestConsole.csproj", "{B058C854-891C-4475-9033-DB6D7DEB0A58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{F7D4A0B7-BFF6-4394-A5B3-D69E41A96747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7D4A0B7-BFF6-4394-A5B3-D69E41A96747}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7D4A0B7-BFF6-4394-A5B3-D69E41A96747}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA814E18-FAE0-41B4-8BAF-F8D035B5D557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA814E18-FAE0-41B4-8BAF-F8D035B5D557}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA814E18-FAE0-41B4-8BAF-F8D035B5D557}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA814E18-FAE0-41B4-8BAF-F8D035B5D557}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1D40A56-7450-426B-A14A-57E953B286EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1D40A56-7450-426B-A14A-57E953B286EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1D40A56-7450-426B-A14A-57E953B286EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1D40A56-7450-426B-A14A-57E953B286EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5DFF98-B0F6-4409-BB63-1A2C27689B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5DFF98-B0F6-4409-BB63-1A2C27689B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5DFF98-B0F6-4409-BB63-1A2C27689B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5DFF98-B0F6-4409-BB63-1A2C27689B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F870679C-ADE5-4FBA-B993-E84402047E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F870679C-ADE5-4FBA-B993-E84402047E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F870679C-ADE5-4FBA-B993-E84402047E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F870679C-ADE5-4FBA-B993-E84402047E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B058C854-891C-4475-9033-DB6D7DEB0A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B058C854-891C-4475-9033-DB6D7DEB0A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B058C854-891C-4475-9033-DB6D7DEB0A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B058C854-891C-4475-9033-DB6D7DEB0A58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,0 @@
-@MultiCloudAISelectionPlatform.SelectionService_HostAddress = http://localhost:5133
-
-GET {{MultiCloudAISelectionPlatform.SelectionService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
