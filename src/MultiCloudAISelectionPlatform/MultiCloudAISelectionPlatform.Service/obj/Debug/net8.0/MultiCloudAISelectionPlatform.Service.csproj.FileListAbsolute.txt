@@ -36,6 +36,15 @@ C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelect
 C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.pdb
 C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.AssemblyReference.cache
 C:\Users\marku\source\repos\MultiCloudAISelectionPlatform\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.CopyComplete
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.AssemblyReference.cache
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.AssemblyInfoInputs.cache
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.AssemblyInfo.cs
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.CoreCompileInputs.cache
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.MvcApplicationPartsAssemblyInfo.cache
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.RazorAssemblyInfo.cache
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.RazorAssemblyInfo.cs
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.sourcelink.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\appsettings.Development.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\appsettings.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Service.staticwebassets.runtime.json
@@ -48,15 +57,6 @@ C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelecti
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.dll
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Common.pdb
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\MultiCloudAISelectionPlatform.Logic.pdb
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.AssemblyReference.cache
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.GeneratedMSBuildEditorConfig.editorconfig
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.AssemblyInfoInputs.cache
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.AssemblyInfo.cs
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.csproj.CoreCompileInputs.cache
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.MvcApplicationPartsAssemblyInfo.cache
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.RazorAssemblyInfo.cache
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.RazorAssemblyInfo.cs
-C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.sourcelink.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\staticwebassets.build.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\staticwebassets.development.json
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\staticwebassets\msbuild.MultiCloudAISelectionPlatform.Service.Microsoft.AspNetCore.StaticWebAssets.props
@@ -74,3 +74,5 @@ C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelecti
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.pdb
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\MultiCloudAISelectionPlatform.Service.genruntimeconfig.cache
 C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\obj\Debug\net8.0\ref\MultiCloudAISelectionPlatform.Service.dll
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\Radzen.Blazor.dll
+C:\Privat\SoftwareBusiness\src\MultiCloudAISelectionPlatform\MultiCloudAISelectionPlatform.Service\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll

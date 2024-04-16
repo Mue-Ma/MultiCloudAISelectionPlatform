@@ -194,6 +194,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.19.5, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.29.6, )"
             }
           },
           "imports": [
