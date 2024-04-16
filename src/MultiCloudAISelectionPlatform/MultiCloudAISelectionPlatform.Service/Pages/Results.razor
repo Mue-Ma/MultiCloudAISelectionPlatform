@@ -67,7 +67,7 @@
     public ComparisonResult[]? Result { get; set; }
     public ComparisonRequest ComparisonRequest { get; set; } = new ComparisonRequest();
 
-    public static IEnumerable<string> AIServices { get; set; } = new List<string> { "text-to-speech", "text-to-image", "AWS" };
+    public static IEnumerable<string> AIServices { get; set; } = new List<string> { "text-to-speech", "text-to-image", "speech-to-text", "image-to-image" };
     public static IEnumerable<string> CloudProviders { get; set; } = new List<string> { "Azure", "Google", "AWS" };
 
     public List<string> SelectedAIServices { get; set; } = new List<string>();
