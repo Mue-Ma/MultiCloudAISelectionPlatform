@@ -7,5 +7,6 @@
         public double ResponseTime { get; set; }
         public string Provider { get; set; } = string.Empty;
         public int Rank { get; set; }
+        public int MeasureMetrik { get; set; }
     }
 }
