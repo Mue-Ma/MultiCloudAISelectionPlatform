@@ -4,4 +4,4 @@ using System.Threading.Channels;
 
 Console.WriteLine("Hello, World!");
 
-MetricService.GetStaticMetrics().ToList().ForEach(metric =>  Console.WriteLine(metric.ProvideName + metric.Costs));
+MetricService.GetStaticMetrics().ToList().ForEach(metric =>  Console.WriteLine(metric.Provider.ToString() + metric.Costs));

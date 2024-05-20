@@ -1,8 +1,10 @@
-﻿namespace MultiCloudAISelectionPlatform.Common.Entities
+﻿using MultiCloudAISelectionPlatform.Common.Enums;
+
+namespace MultiCloudAISelectionPlatform.Common.Entities
 {
     public class StaticMetrics
     {
-        public string ProvideName { get; set; } = string.Empty;
+        public SupportedProviders Provider { get; set; } = default;
         public decimal Costs { get; set; }
     }
 }

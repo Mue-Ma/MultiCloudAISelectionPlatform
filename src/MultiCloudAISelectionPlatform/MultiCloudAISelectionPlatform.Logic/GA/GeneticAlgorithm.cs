@@ -1,6 +1,8 @@
-﻿namespace MultiCloudAISelectionPlatform.Logic.GA
+﻿using MultiCloudAISelectionPlatform.Common.Models;
+
+namespace MultiCloudAISelectionPlatform.Logic.GA
 {
-    public class GeneticAlgorithm<T>
+    public class GeneticAlgorithm<T> where T : ComparisonResult
     {
         public List<DNA<T>> Population { get; private set; }
         public int Generation { get; private set; }

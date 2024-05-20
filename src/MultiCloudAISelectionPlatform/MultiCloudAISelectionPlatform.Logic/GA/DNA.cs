@@ -1,6 +1,8 @@
-﻿namespace MultiCloudAISelectionPlatform.Logic.GA
+﻿using MultiCloudAISelectionPlatform.Common.Models;
+
+namespace MultiCloudAISelectionPlatform.Logic.GA
 {
-    public class DNA<T>
+    public class DNA<T> where T : ComparisonResult
     {
         public T[] Genes { get; private set; }
         public double Fitness { get; private set; }
@@ -20,7 +22,12 @@
             {
                 for (int i = 0; i < Genes.Length; i++)
                 {
-                    Genes[i] = getRandomGene();
+                    var gene = getRandomGene();
+                    while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false)) 
+                    {
+                        gene = getRandomGene();
+                    }
+                    Genes[i] = gene;
                 }
             }
         }
@@ -37,7 +44,14 @@
 
             for (int i = 0; i < Genes.Length; i++)
             {
-                child.Genes[i] = random.NextDouble() < 0.5 ? Genes[i] : otherParent.Genes[i];
+                var gene = random.NextDouble() < 0.5 ? Genes[i] : otherParent.Genes[i];
+                var index = Array.FindIndex(child.Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
+                if (index != -1)
+                {
+                    child.Genes[index] = child.Genes[i];
+                    child.Genes[i] = gene;
+                }
+                child.Genes[i] = gene;
             }
 
             return child;
@@ -49,7 +63,14 @@
             {
                 if (random.NextDouble() < mutationRate)
                 {
-                    Genes[i] = getRandomGene();
+                    var gene = getRandomGene();
+                    var index = Array.FindIndex(Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
+                    if (index != -1)
+                    {
+                        Genes[index] = Genes[i];
+                        Genes[i] = gene;
+                    }
+                    Genes[i] = gene;
                 }
             }
         }

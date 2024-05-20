@@ -1,4 +1,5 @@
-﻿using MultiCloudAISelectionPlatform.Common.Models;
+﻿using Microsoft.VisualBasic;
+using MultiCloudAISelectionPlatform.Common.Models;
 using MultiCloudAISelectionPlatform.Logic.GA;
 
 namespace MultiCloudAISelectionPlatform.Logic
@@ -10,26 +11,26 @@ namespace MultiCloudAISelectionPlatform.Logic
                 new()
                 {
                     Rank = 1,
-                    Accuracy = 123.42,
-                    Costs = 20,
-                    Provider = "Azure",
-                    ResponseTime = 3.2
+                    Accuracy = 0.7,
+                    Costs = 15,
+                    Provider = Common.Enums.SupportedProviders.Azure,
+                    ResponseTime = 4
                 },
             new()
             {
                 Rank = 2,
-                Accuracy = 123.42,
-                Costs = 20,
-                Provider = "Google",
+                Accuracy = 0.9,
+                Costs = 30,
+                Provider = Common.Enums.SupportedProviders.Google,
                 ResponseTime = 3.2
             },
             new()
             {
                 Rank = 3,
-                Accuracy = 123.42,
+                Accuracy = 0.5,
                 Costs = 20,
-                Provider = "AWS",
-                ResponseTime = 3.2
+                Provider = Common.Enums.SupportedProviders.AWS,
+                ResponseTime = 2
             }
         ];
 
@@ -49,11 +50,7 @@ namespace MultiCloudAISelectionPlatform.Logic
         {
             return await Task.Run(() =>
             {
-                while (ga.BestFitness != 1)
-                {
-                    Update();
-                }
-
+                Update();
                 return ComparisonResults;
             });
         }
@@ -82,6 +79,11 @@ namespace MultiCloudAISelectionPlatform.Logic
             double score = 0;
             DNA<ComparisonResult> dna = ga.Population[index];
 
+            if (dna.Genes.Any(g => g == null))
+            {
+                return 0;
+            }
+
             foreach (var gene in dna.Genes)
             {
                 if (!dna.Genes.Any(g => g.MeasureMetrik > gene.MeasureMetrik && g.Rank < gene.Rank))
@@ -91,8 +93,6 @@ namespace MultiCloudAISelectionPlatform.Logic
             }
 
             score /= FirstComparisonResult.Length;
-
-            score = (Math.Pow(2, score) - 1) / (2 - 1);
 
             return score;
         }
