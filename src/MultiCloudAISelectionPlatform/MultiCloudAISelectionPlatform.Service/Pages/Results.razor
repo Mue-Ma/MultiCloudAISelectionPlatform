@@ -1,0 +1,101 @@
+﻿@page "/results"
+@namespace MultiCloudAISelectionPlatform.Service.Pages
+@using MultiCloudAISelectionPlatform.Common.Models
+@using MultiCloudAISelectionPlatform.Logic
+@inject ResultService ResultService
+
+<h3 style="margin-bottom: 30px;">Cloud based AI Service Comparison</h3>
+
+<EditForm Model="@ComparisonRequest">
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="AI Services" Component="DropDownMultipleChips" Style="width: 140px;; margin-right: 8px; vertical-align: middle;" />
+        <RadzenDropDown @bind-Value=@SelectedAIServices Data=@AIServices
+                        Multiple=true AllowClear=true Placeholder="Select AI Services" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
+    </div>
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="Service Providers" Component="DropDownMultipleChips" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
+        <RadzenDropDown @bind-Value=@SelectedCloudProviders Data=@CloudProviders
+                        Multiple=true AllowClear=true Placeholder="Select Cloud Providers" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
+    </div>
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="Upload Data" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
+        <RadzenCard>
+            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Placeholder</RadzenText>
+            <RadzenUpload Url="upload/single" Icon="upload" ChooseText="" InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "select file" }})">
+            </RadzenUpload>
+        </RadzenCard>
+    </div>
+
+    <RadzenButton style="margin-bottom: 30px" Click=@(args => GetResult()) Text="Get Results" ButtonStyle="ButtonStyle.Info" />
+</EditForm>
+
+@if (Result is not null)
+{
+    <h3 style="margin-bottom: 30px; margin-top: 30px;">Results:</h3>
+}
+
+<RadzenDataList WrapItems="true" AllowPaging="false" Data="@Result" TItem="ComparisonResult" Style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <Template Context="result">
+        <RadzenCard Style="flex: 1 1 400px; min-width: 400px; max-width: 400px;">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+                <RadzenStack Gap="0">
+                    <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">Provider</RadzenText>
+                    <RadzenText TextStyle="TextStyle.Body1"><b>@(result?.Provider)</b></RadzenText>
+                    <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">Result</RadzenText>
+                    <RadzenText TextStyle="TextStyle.Body1"><b>Accuracy: @(result.Accuracy)</b></RadzenText>
+                    <RadzenText TextStyle="TextStyle.Body1"><b>Response Time: @(result.ResponseTime)</b></RadzenText>
+                    <RadzenText TextStyle="TextStyle.Body1"><b>Costs: @(result.Costs)</b></RadzenText>
+                </RadzenStack>
+            </RadzenStack>
+            <hr style="border: none; background-color: rgba(0,0,0,.2); height: 1px; margin: 1rem 0;" />
+            <RadzenRow>
+                <RadzenColumn Size="8" Class="rz-text-truncate">
+                    <b>Rank:</b>
+                </RadzenColumn>
+                <RadzenColumn Size="4" Class="rz-text-align-end">
+                    <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Text=@($"{String.Format(result.Rank.ToString())}") />
+                </RadzenColumn>
+            </RadzenRow>
+        </RadzenCard>
+    </Template>
+</RadzenDataList>
+
+
+@code {
+    public ComparisonResult[]? Result { get; set; }
+    public ComparisonRequest ComparisonRequest { get; set; } = new ComparisonRequest();
+
+    public static IEnumerable<string> AIServices { get; set; } = new List<string> { "text-to-speech", "text-to-image", "speech-to-text", "image-to-image" };
+    public static IEnumerable<string> CloudProviders { get; set; } = new List<string> { "Azure", "Google", "AWS" };
+
+    public List<string> SelectedAIServices { get; set; } = new List<string>();
+    public List<string> SelectedCloudProviders { get; set; } = new List<string>();
+
+    private void OnAIServicesChanged(ChangeEventArgs e)
+    {
+        var selectedOptions = e.Value as IEnumerable<string>;
+        if (selectedOptions is not null)
+        {
+            SelectedAIServices = selectedOptions.ToList();
+        }
+    }
+
+    private void OnCloudProvidersChanged(ChangeEventArgs e)
+    {
+        var selectedOptions = e.Value as IEnumerable<string>;
+        if (selectedOptions is not null)
+        {
+            SelectedCloudProviders = selectedOptions.ToList();
+        }
+    }
+
+    private async Task GetResult()
+    {
+        ComparisonRequest.Services = SelectedAIServices.ToArray();
+        ComparisonRequest.Providers = SelectedCloudProviders.ToArray();
+        Result = await ResultService.GetResults(ComparisonRequest);
+    }
+}

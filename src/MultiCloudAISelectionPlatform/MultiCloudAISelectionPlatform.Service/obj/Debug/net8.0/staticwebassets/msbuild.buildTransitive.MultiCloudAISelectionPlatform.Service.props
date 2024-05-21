@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\MultiCloudAISelectionPlatform.Service.props" />
-</Project>
