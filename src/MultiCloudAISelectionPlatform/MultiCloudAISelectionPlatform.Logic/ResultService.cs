@@ -10,7 +10,7 @@ namespace MultiCloudAISelectionPlatform.Logic
         [
                 new()
                 {
-                    Rank = 1,
+                    Rank = 2,
                     Accuracy = 0.7,
                     Costs = 15,
                     Provider = Common.Enums.SupportedProviders.Azure,
@@ -18,15 +18,15 @@ namespace MultiCloudAISelectionPlatform.Logic
                 },
             new()
             {
-                Rank = 2,
+                Rank = 3,
                 Accuracy = 0.9,
-                Costs = 30,
+                Costs = 1,
                 Provider = Common.Enums.SupportedProviders.Google,
                 ResponseTime = 3.2
             },
             new()
             {
-                Rank = 3,
+                Rank = 1,
                 Accuracy = 0.5,
                 Costs = 20,
                 Provider = Common.Enums.SupportedProviders.AWS,
@@ -42,7 +42,7 @@ namespace MultiCloudAISelectionPlatform.Logic
         public ResultService()
         {
             random = new Random();
-            ga = new GeneticAlgorithm<ComparisonResult>(200, 3, random, GetRandomCharacter, FitnessFunction, 5);
+            ga = new GeneticAlgorithm<ComparisonResult>(20, 3, random, GetRandomCharacter, FitnessFunction, 5);
             ComparisonResults = ga.BestGenes;
         }
 
@@ -50,7 +50,11 @@ namespace MultiCloudAISelectionPlatform.Logic
         {
             return await Task.Run(() =>
             {
-                Update();
+                while (ga.BestFitness != 1)
+                {
+                    Update();
+                }
+
                 return ComparisonResults;
             });
         }
@@ -86,7 +90,7 @@ namespace MultiCloudAISelectionPlatform.Logic
 
             foreach (var gene in dna.Genes)
             {
-                if (!dna.Genes.Any(g => g.MeasureMetrik > gene.MeasureMetrik && g.Rank < gene.Rank))
+                if (!dna.Genes.Any(g => g.MeasureMetrik > gene.MeasureMetrik && Array.IndexOf(dna.Genes, g) < Array.IndexOf(dna.Genes, gene)))
                 {
                     score += 1;
                 }

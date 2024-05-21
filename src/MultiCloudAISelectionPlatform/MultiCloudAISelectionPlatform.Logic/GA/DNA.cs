@@ -48,8 +48,19 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
                 var index = Array.FindIndex(child.Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
                 if (index != -1)
                 {
-                    child.Genes[index] = child.Genes[i];
-                    child.Genes[i] = gene;
+                    if (Genes[i] == null)
+                    {
+                        while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
+                        {
+                            gene = getRandomGene();
+                        }
+                        child.Genes[i] = gene;
+                    }
+                    else
+                    {
+                        child.Genes[index] = child.Genes[i];
+                        child.Genes[i] = gene;
+                    }
                 }
                 child.Genes[i] = gene;
             }
@@ -67,8 +78,19 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
                     var index = Array.FindIndex(Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
                     if (index != -1)
                     {
-                        Genes[index] = Genes[i];
-                        Genes[i] = gene;
+                        if (Genes[i] == null)
+                        {
+                            while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
+                            {
+                                gene = getRandomGene();
+                            }
+                            Genes[i] = gene;
+                        }
+                        else 
+                        {
+                            Genes[index] = Genes[i];
+                            Genes[i] = gene;
+                        }
                     }
                     Genes[i] = gene;
                 }
