@@ -6,41 +6,19 @@ namespace MultiCloudAISelectionPlatform.Logic
 {
     public class ResultService
     {
-        ComparisonResult[] FirstComparisonResult =>
-        [
-                new()
-                {
-                    Accuracy = 0.7,
-                    Costs = 15,
-                    Provider = Common.Enums.SupportedProviders.Azure,
-                    ResponseTime = 4
-                },
-            new()
-            {
-                Accuracy = 0.9,
-                Costs = 1,
-                Provider = Common.Enums.SupportedProviders.Google,
-                ResponseTime = 3.2
-            },
-            new()
-            {
-                Accuracy = 0.5,
-                Costs = 20,
-                Provider = Common.Enums.SupportedProviders.AWS,
-                ResponseTime = 2
-            }
-        ];
-
-        ComparisonResult[] ComparisonResults;
+        ComparisonResult[] InitialComparisonResult;
+        ComparisonResult[] FinalComparisonResults;
 
         private readonly GeneticAlgorithm<ComparisonResult> ga;
         private readonly Random random;
 
         public ResultService()
         {
+            InitialComparisonResult = MetricService.GetMetrics();
             random = new Random();
             ga = new GeneticAlgorithm<ComparisonResult>(20, 3, random, GetRandomCharacter, FitnessFunction, 5);
-            ComparisonResults = ga.BestGenes;
+            FinalComparisonResults = ga.BestGenes;
+
         }
 
         public async Task<ComparisonResult[]> GetResults(ComparisonRequest request)
@@ -52,7 +30,7 @@ namespace MultiCloudAISelectionPlatform.Logic
                     Update();
                 }
                 SetRanks();
-                return ComparisonResults;
+                return FinalComparisonResults;
             });
         }
 
@@ -64,13 +42,13 @@ namespace MultiCloudAISelectionPlatform.Logic
 
         private void UpdateResult(ComparisonResult[] bestGenes)
         {
-            ComparisonResults = bestGenes;
+            FinalComparisonResults = bestGenes;
         }
 
         private ComparisonResult GetRandomCharacter()
         {
-            int i = random.Next(FirstComparisonResult.Length);
-            return FirstComparisonResult[i];
+            int i = random.Next(InitialComparisonResult.Length);
+            return InitialComparisonResult[i];
         }
 
         private double FitnessFunction(int index)
@@ -93,16 +71,16 @@ namespace MultiCloudAISelectionPlatform.Logic
                 }
             }
 
-            score /= FirstComparisonResult.Length;
+            score /= InitialComparisonResult.Length;
 
             return score;
         }
 
         private void SetRanks()
         {
-            foreach (var item in ComparisonResults)
+            foreach (var item in FinalComparisonResults)
             {
-                item.Rank = Array.IndexOf(ComparisonResults, item) + 1;
+                item.Rank = Array.IndexOf(FinalComparisonResults, item) + 1;
             }
         }
     }
