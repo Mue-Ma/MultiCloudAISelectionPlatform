@@ -4,26 +4,26 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
 {
     public class DNA<T> where T : ComparisonResult
     {
+        private readonly Random _random;
+        private readonly Func<T> _getRandomGene;
+        private readonly Func<int, double> _fitnessFunction;
+
         public T[] Genes { get; private set; }
         public double Fitness { get; private set; }
-
-        private readonly Random random;
-        private readonly Func<T> getRandomGene;
-        private readonly Func<int, double> fitnessFunction;
 
         public DNA(int size, Random random, Func<T> getRandomGene, Func<int, double> fitnessFunction, bool shouldInitGenes = true)
         {
             Genes = new T[size];
-            this.random = random;
-            this.getRandomGene = getRandomGene;
-            this.fitnessFunction = fitnessFunction;
+            _random = random;
+            _getRandomGene = getRandomGene;
+            _fitnessFunction = fitnessFunction;
 
             if (shouldInitGenes)
             {
                 for (int i = 0; i < Genes.Length; i++)
                 {
                     var gene = getRandomGene();
-                    while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false)) 
+                    while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
                     {
                         gene = getRandomGene();
                     }
@@ -34,35 +34,17 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
 
         public double CalculateFitness(int index)
         {
-            Fitness = fitnessFunction(index);
+            Fitness = _fitnessFunction(index);
             return Fitness;
         }
 
         public DNA<T> Crossover(DNA<T> otherParent)
         {
-            DNA<T> child = new(Genes.Length, random, getRandomGene, fitnessFunction, shouldInitGenes: false);
+            DNA<T> child = new(Genes.Length, _random, _getRandomGene, _fitnessFunction, shouldInitGenes: false);
 
             for (int i = 0; i < Genes.Length; i++)
             {
-                var gene = random.NextDouble() < 0.5 ? Genes[i] : otherParent.Genes[i];
-                var index = Array.FindIndex(child.Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
-                if (index != -1)
-                {
-                    if (Genes[i] == null)
-                    {
-                        while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
-                        {
-                            gene = getRandomGene();
-                        }
-                        child.Genes[i] = gene;
-                    }
-                    else
-                    {
-                        child.Genes[index] = child.Genes[i];
-                        child.Genes[i] = gene;
-                    }
-                }
-                child.Genes[i] = gene;
+                SetOrSwapGene(child.Genes, i);
             }
 
             return child;
@@ -72,29 +54,39 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
         {
             for (int i = 0; i < Genes.Length; i++)
             {
-                if (random.NextDouble() < mutationRate)
+                if (_random.NextDouble() < mutationRate)
                 {
-                    var gene = getRandomGene();
-                    var index = Array.FindIndex(Genes, g => g?.Provider.Equals(gene.Provider) ?? false);
-                    if (index != -1)
-                    {
-                        if (Genes[i] == null)
-                        {
-                            while (Genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
-                            {
-                                gene = getRandomGene();
-                            }
-                            Genes[i] = gene;
-                        }
-                        else 
-                        {
-                            Genes[index] = Genes[i];
-                            Genes[i] = gene;
-                        }
-                    }
-                    Genes[i] = gene;
+                    SetOrSwapGene(Genes, i);
                 }
             }
+        }
+
+        /// <summary>
+        /// Takes care that every Object can only exist once. 
+        /// </summary>
+        /// <param name="genes"></param>
+        /// <param name="i"></param>
+        private void SetOrSwapGene(T[] genes, int i)
+        {
+            var gene = _getRandomGene();
+            var index = Array.FindIndex(genes, g => g?.Provider.Equals(gene.Provider) ?? false);
+            if (index != -1)
+            {
+                if (genes[i] == null)
+                {
+                    while (genes.Any(g => g?.Provider.Equals(gene.Provider) ?? false))
+                    {
+                        gene = _getRandomGene();
+                    }
+                    genes[i] = gene;
+                }
+                else
+                {
+                    genes[index] = genes[i];
+                    genes[i] = gene;
+                }
+            }
+            genes[i] = gene;
         }
     }
 }

@@ -4,34 +4,33 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
 {
     public class GeneticAlgorithm<T> where T : ComparisonResult
     {
-        public List<DNA<T>> Population { get; private set; }
+        private readonly int _dnaSize;
+        private readonly Random _random;
+        private readonly Func<T> _getRandomGene;
+        private readonly Func<int, double> _fitnessFunction;
+        private double fitnessSum;
+        private List<DNA<T>> newPopulation;
+
+        public int Elitism { get; private set; }
+        public float MutationRate { get; private set; }
         public int Generation { get; private set; }
         public double BestFitness { get; private set; }
         public T[] BestGenes { get; private set; }
-
-        public int Elitism;
-        public float MutationRate;
-
-        private List<DNA<T>> newPopulation;
-        private Random random;
-        private double fitnessSum;
-        private int dnaSize;
-        private Func<T> getRandomGene;
-        private Func<int, double> fitnessFunction;
+        public List<DNA<T>> Population { get; private set; }
 
         public GeneticAlgorithm(int populationSize, int dnaSize, Random random, Func<T> getRandomGene, Func<int, double> fitnessFunction,
             int elitism, float mutationRate = 0.01f)
         {
+            _random = random;
+            _dnaSize = dnaSize;
+            _getRandomGene = getRandomGene;
+            _fitnessFunction = fitnessFunction;
+
             Generation = 1;
             Elitism = elitism;
             MutationRate = mutationRate;
             Population = new List<DNA<T>>(populationSize);
             newPopulation = new List<DNA<T>>(populationSize);
-            this.random = random;
-            this.dnaSize = dnaSize;
-            this.getRandomGene = getRandomGene;
-            this.fitnessFunction = fitnessFunction;
-
             BestGenes = new T[dnaSize];
 
             for (int i = 0; i < populationSize; i++)
@@ -75,7 +74,7 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
                 }
                 else
                 {
-                    newPopulation.Add(new DNA<T>(dnaSize, random, getRandomGene, fitnessFunction, shouldInitGenes: true));
+                    newPopulation.Add(new DNA<T>(_dnaSize, _random, _getRandomGene, _fitnessFunction, shouldInitGenes: true));
                 }
             }
 
@@ -123,7 +122,7 @@ namespace MultiCloudAISelectionPlatform.Logic.GA
 
         private DNA<T> ChooseParent()
         {
-            double randomNumber = random.NextDouble() * fitnessSum;
+            double randomNumber = _random.NextDouble() * fitnessSum;
 
             for (int i = 0; i < Population.Count; i++)
             {
