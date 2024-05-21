@@ -10,7 +10,6 @@ namespace MultiCloudAISelectionPlatform.Logic
         [
                 new()
                 {
-                    Rank = 2,
                     Accuracy = 0.7,
                     Costs = 15,
                     Provider = Common.Enums.SupportedProviders.Azure,
@@ -18,7 +17,6 @@ namespace MultiCloudAISelectionPlatform.Logic
                 },
             new()
             {
-                Rank = 3,
                 Accuracy = 0.9,
                 Costs = 1,
                 Provider = Common.Enums.SupportedProviders.Google,
@@ -26,7 +24,6 @@ namespace MultiCloudAISelectionPlatform.Logic
             },
             new()
             {
-                Rank = 1,
                 Accuracy = 0.5,
                 Costs = 20,
                 Provider = Common.Enums.SupportedProviders.AWS,
@@ -54,7 +51,7 @@ namespace MultiCloudAISelectionPlatform.Logic
                 {
                     Update();
                 }
-
+                SetRanks();
                 return ComparisonResults;
             });
         }
@@ -99,6 +96,14 @@ namespace MultiCloudAISelectionPlatform.Logic
             score /= FirstComparisonResult.Length;
 
             return score;
+        }
+
+        private void SetRanks()
+        {
+            foreach (var item in ComparisonResults)
+            {
+                item.Rank = Array.IndexOf(ComparisonResults, item) + 1;
+            }
         }
     }
 }
