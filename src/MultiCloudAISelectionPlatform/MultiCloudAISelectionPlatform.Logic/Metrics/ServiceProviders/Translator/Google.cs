@@ -6,7 +6,7 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translato
     {
         public Google()
         {
-            Provider = Common.Enums.Providers.AWS;
+            Provider = Common.Enums.Providers.Google;
         }
 
         public override async Task<MetricsResult> PerformMesurement()
