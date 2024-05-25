@@ -7,7 +7,7 @@ namespace MultiCloudAISelectionPlatform.Common.Models
         public double Accuracy { get; set; }
         public decimal Costs { get; set; }
         public double ResponseTime { get; set; }
-        public SupportedProviders Provider { get; set; } = default;
+        public Providers Provider { get; set; } = default;
         public int Rank { get; set; }
         public double MeasureMetrik => ((double)Costs * ResponseTime) * (1 / Accuracy);
     }

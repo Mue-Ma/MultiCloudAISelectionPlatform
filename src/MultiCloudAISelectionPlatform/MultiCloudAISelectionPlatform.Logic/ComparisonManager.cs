@@ -13,7 +13,15 @@ namespace MultiCloudAISelectionPlatform.Logic
         public ComparisonManager()
         {
             _random = new Random();
-            _initialComparisonResult = MetricService.GetMetrics();
+
+            _initialComparisonResult = MetricService.GetTranslatorMetrics().Select(m => new ComparisonResult 
+            {
+                Accuracy = m.DynamicMetrics.Accuracy,
+                Costs = m.StaticMetrics.Costs,
+                Provider = m.Provider,
+                ResponseTime = m.DynamicMetrics.ResponseTime
+            }).ToArray();
+
             _ga = new GeneticAlgorithm<ComparisonResult>(20, 3, _random, GetRandomCharacter, FitnessFunction, 5);
             _finalComparisonResults = _ga.BestGenes;
         }

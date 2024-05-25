@@ -1,5 +1,6 @@
 ﻿using MultiCloudAISelectionPlatform.Common.Entities;
 using MultiCloudAISelectionPlatform.Common.Models;
+using MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator;
 
 namespace MultiCloudAISelectionPlatform.Logic
 {
@@ -10,37 +11,18 @@ namespace MultiCloudAISelectionPlatform.Logic
             throw new NotImplementedException();
         }
 
-        public static DynamicMetric[] GetDynamicMetrics()
+        public static DynamicMetrics[] GetDynamicMetrics()
         {
             throw new NotImplementedException();
         }
 
-        internal static ComparisonResult[] GetMetrics()
+        internal static MetricsResult[] GetTranslatorMetrics()
         {
-            return 
-            [
-                new()
-                {
-                    Accuracy = 0.7,
-                    Costs = 15,
-                    Provider = Common.Enums.SupportedProviders.Azure,
-                    ResponseTime = 4
-                },
-                new()
-                {
-                    Accuracy = 0.9,
-                    Costs = 1,
-                    Provider = Common.Enums.SupportedProviders.Google,
-                    ResponseTime = 3.2
-                },
-                new()
-                {
-                    Accuracy = 0.5,
-                    Costs = 20,
-                    Provider = Common.Enums.SupportedProviders.AWS,
-                    ResponseTime = 2
-                }
-            ];
+            TranslatorMetricsProvider provider = new();
+
+            provider.StartAnalyzingServices();
+
+            return [.. provider.MetricsResults];
         }
     }
 }

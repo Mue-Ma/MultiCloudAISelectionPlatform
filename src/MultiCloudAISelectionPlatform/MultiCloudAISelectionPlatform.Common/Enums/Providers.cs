@@ -1,6 +1,6 @@
 ﻿namespace MultiCloudAISelectionPlatform.Common.Enums
 {
-    public enum SupportedProviders
+    public enum Providers
     {
         Azure,
         Google,
