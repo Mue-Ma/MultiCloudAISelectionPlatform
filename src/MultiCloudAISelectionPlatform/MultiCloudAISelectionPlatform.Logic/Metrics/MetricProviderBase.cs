@@ -20,10 +20,13 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics
             {
                 if (providerT != null && providers.Any( p => p.ToString().Equals(providerT.Name))) 
                 {
-                    if (Activator.CreateInstance(providerT) is MeasureMetricsPerformerBase instance) metrikMeasureTasks.Add(Task.Run(async () => 
+                    if (Activator.CreateInstance(providerT) is MeasureMetricsPerformerBase instance)
                     {
-                        MetricsResults.Add(await instance.PerformMesurement());
-                    }));
+                        metrikMeasureTasks.Add(Task.Run(async () =>
+                        {
+                            MetricsResults.Add(await instance.PerformMesurement(MeasuredService));
+                        }));
+                    }
                 }
             }
             Task.WaitAll([.. metrikMeasureTasks]);
@@ -38,6 +41,5 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics
                 t.IsSubclassOf(typeof(MeasureMetricsPerformerBase)) &&
                 t.Namespace == $"MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.{MeasuredService}").ToArray();
         }
-
     }
 }

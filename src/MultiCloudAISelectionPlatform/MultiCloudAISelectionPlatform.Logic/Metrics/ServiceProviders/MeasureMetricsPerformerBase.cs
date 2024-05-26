@@ -7,13 +7,14 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders
     {
         public Providers Provider { get; protected set; }
 
-        public virtual async Task<MetricsResult> PerformMesurement()
+        public virtual async Task<MetricsResult> PerformMesurement(Services measuredService)
         {
             return await Task.Run(() =>
             {
                 return new MetricsResult()
                 {
                     Provider = Provider,
+                    Service = measuredService,
                     StaticMetrics = new StaticMetrics() { Costs = GetCostsMeasure() },
                     DynamicMetrics = new DynamicMetrics()
                     {
