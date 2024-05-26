@@ -1,5 +1,6 @@
 ﻿@page "/results"
 @namespace MultiCloudAISelectionPlatform.Service.Pages
+@using MultiCloudAISelectionPlatform.Common.Enums
 @using MultiCloudAISelectionPlatform.Common.Models
 @using MultiCloudAISelectionPlatform.Logic
 @inject ResultService ResultService
@@ -11,7 +12,7 @@
     <div style="padding-bottom: 50px;">
         <RadzenLabel Text="AI Services" Component="DropDownMultipleChips" Style="width: 140px;; margin-right: 8px; vertical-align: middle;" />
         <RadzenDropDown @bind-Value=@SelectedAIServices Data=@AIServices
-                        Multiple=true AllowClear=true Placeholder="Select AI Services" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
+                        Multiple=false AllowClear=true Placeholder="Select AI Services" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
     </div>
 
     <div style="padding-bottom: 50px;">
@@ -68,24 +69,25 @@
     public ComparisonResult[]? Result { get; set; }
     public ComparisonRequest ComparisonRequest { get; set; } = new ComparisonRequest();
 
-    public static IEnumerable<string> AIServices { get; set; } = new List<string> { "text-to-speech", "text-to-image", "speech-to-text", "image-to-image" };
-    public static IEnumerable<string> CloudProviders { get; set; } = new List<string> { "Azure", "Google", "AWS" };
+    public static IEnumerable<Services> AIServices { get; set; } = Enum.GetValues(typeof(Services)).Cast<Services>();
+    public static IEnumerable<Providers> CloudProviders { get; set; } = Enum.GetValues(typeof(Providers)).Cast<Providers>();
 
-    public List<string> SelectedAIServices { get; set; } = new List<string>();
-    public List<string> SelectedCloudProviders { get; set; } = new List<string>();
+    public Services SelectedAIServices { get; set; }
+    public List<Providers> SelectedCloudProviders { get; set; } = [];
 
     private void OnAIServicesChanged(ChangeEventArgs e)
     {
-        var selectedOptions = e.Value as IEnumerable<string>;
-        if (selectedOptions is not null)
+        var selectedOptions = (Services) e.Value!;
+
+        if (selectedOptions != default)
         {
-            SelectedAIServices = selectedOptions.ToList();
+            SelectedAIServices = selectedOptions;
         }
     }
 
     private void OnCloudProvidersChanged(ChangeEventArgs e)
     {
-        var selectedOptions = e.Value as IEnumerable<string>;
+        var selectedOptions = e.Value as IEnumerable<Providers>;
         if (selectedOptions is not null)
         {
             SelectedCloudProviders = selectedOptions.ToList();
@@ -94,7 +96,7 @@
 
     private async Task GetResult()
     {
-        ComparisonRequest.Services = SelectedAIServices.ToArray();
+        ComparisonRequest.Service = SelectedAIServices;
         ComparisonRequest.Providers = SelectedCloudProviders.ToArray();
         Result = await ResultService.GetResults(ComparisonRequest);
     }

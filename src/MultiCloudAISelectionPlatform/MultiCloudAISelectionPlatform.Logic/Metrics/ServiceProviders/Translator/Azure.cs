@@ -15,9 +15,13 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translato
 
             res.DynamicMetrics.Accuracy = 0.7;
             res.DynamicMetrics.ResponseTime = 4;
-            res.StaticMetrics.Costs = 15;
 
             return res;
+        }
+
+        protected override decimal GetCostsMeasure()
+        {
+            return 1;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics
         public Services MeasuredService { get; private set; } = measuredService;
         public List<MetricsResult> MetricsResults { get; private set; } = [];
 
-        public virtual void StartAnalyzingServices()
+        public virtual void StartAnalyzingServices(Providers[] providers)
         {
             var metricProviderClasses = GetMetricProviderClasses();
             
@@ -18,7 +18,7 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics
 
             foreach (var providerT in metricProviderClasses) 
             {
-                if (providerT != null) 
+                if (providerT != null && providers.Any( p => p.ToString().Equals(providerT.Name))) 
                 {
                     if (Activator.CreateInstance(providerT) is MeasureMetricsPerformerBase instance) metrikMeasureTasks.Add(Task.Run(async () => 
                     {

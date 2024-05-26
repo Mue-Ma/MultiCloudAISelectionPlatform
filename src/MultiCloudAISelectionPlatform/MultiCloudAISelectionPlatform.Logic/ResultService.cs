@@ -7,7 +7,11 @@ namespace MultiCloudAISelectionPlatform.Logic
         public async Task<ComparisonResult[]> GetResults(ComparisonRequest request)
         {
             ComparisonManager comparisonManager = new();
-            return await comparisonManager.CalculateComparisonResults(request);
+
+            comparisonManager.IntiMetrics(request.Service, request.Providers);
+            comparisonManager.IntiGA();
+
+            return await comparisonManager.CalculateComparisonResults();
         }
     }
 }

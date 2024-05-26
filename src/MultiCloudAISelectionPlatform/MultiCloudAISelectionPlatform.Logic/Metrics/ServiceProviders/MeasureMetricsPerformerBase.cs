@@ -11,8 +11,14 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders
         {
             return await Task.Run(() =>
             {
-                return new MetricsResult() { Provider = Provider };
+                return new MetricsResult() 
+                { 
+                    Provider = Provider,
+                    StaticMetrics = new StaticMetrics() { Costs = GetCostsMeasure() }
+                };
             });
         }
+
+        protected abstract decimal GetCostsMeasure();
     }
 }

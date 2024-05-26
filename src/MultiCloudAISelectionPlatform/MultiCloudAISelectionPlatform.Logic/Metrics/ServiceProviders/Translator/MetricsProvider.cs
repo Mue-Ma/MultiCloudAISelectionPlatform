@@ -2,7 +2,7 @@
 
 namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
 {
-    public class TranslatorMetricsProvider(Services measuredService = Services.Translator) : MetricProviderBase(measuredService)
+    public class MetricsProvider(Services measuredService = Services.Translator) : MetricProviderBase(measuredService)
     {
     }
 }

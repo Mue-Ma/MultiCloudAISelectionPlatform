@@ -1,28 +1,30 @@
 ﻿using MultiCloudAISelectionPlatform.Common.Entities;
-using MultiCloudAISelectionPlatform.Common.Models;
-using MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator;
+using MultiCloudAISelectionPlatform.Common.Enums;
+using MultiCloudAISelectionPlatform.Logic.Metrics;
+using System.Reflection;
 
 namespace MultiCloudAISelectionPlatform.Logic
 {
     public static class MetricService
     {
-        public static StaticMetrics[] GetStaticMetrics()
+        internal static MetricsResult[] GetMetrics(Services service, Providers[] providers)
         {
-            throw new NotImplementedException();
+            var providerT = GetMetricsProviderClass(service);
+            var providerInstance = Activator.CreateInstance(providerT, service) as MetricProviderBase ?? throw new Exception($"Provider for {service} couldn't be created!");
+
+            providerInstance.StartAnalyzingServices(providers);
+
+            return [.. providerInstance.MetricsResults];
         }
 
-        public static DynamicMetrics[] GetDynamicMetrics()
+        private static Type GetMetricsProviderClass(Services service)
         {
-            throw new NotImplementedException();
-        }
-
-        internal static MetricsResult[] GetTranslatorMetrics()
-        {
-            TranslatorMetricsProvider provider = new();
-
-            provider.StartAnalyzingServices();
-
-            return [.. provider.MetricsResults];
+            return Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(t =>
+                t.IsClass &&
+                t.IsSubclassOf(typeof(MetricProviderBase)) &&
+                t.Namespace == $"MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.{service}").First() ?? throw new Exception($"Provider for {service} not found!");
         }
     }
 }
