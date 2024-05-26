@@ -9,19 +9,19 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translato
             Provider = Common.Enums.Providers.Azure;
         }
 
-        public override async Task<MetricsResult> PerformMesurement()
-        {
-            var res = await base.PerformMesurement();
-
-            res.DynamicMetrics.Accuracy = 0.7;
-            res.DynamicMetrics.ResponseTime = 4;
-
-            return res;
-        }
-
         protected override decimal GetCostsMeasure()
         {
             return 10;
+        }
+
+        protected override double GetAccuracyMeasure()
+        {
+            return 0.7;
+        }
+
+        protected override double GetResponseTimeMeasure()
+        {
+            return 3;
         }
     }
 }

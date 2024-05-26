@@ -9,19 +9,19 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translato
             Provider = Common.Enums.Providers.Google;
         }
 
-        public override async Task<MetricsResult> PerformMesurement()
-        {
-            var res = await base.PerformMesurement();
-
-            res.DynamicMetrics.Accuracy = 0.99;
-            res.DynamicMetrics.ResponseTime = 1.5;
-
-            return res;
-        }
-
         protected override decimal GetCostsMeasure()
         {
             return 20;
+        }
+
+        protected override double GetAccuracyMeasure()
+        {
+            return 0.99;
+        }
+
+        protected override double GetResponseTimeMeasure()
+        {
+            return 1.5;
         }
     }
 }
