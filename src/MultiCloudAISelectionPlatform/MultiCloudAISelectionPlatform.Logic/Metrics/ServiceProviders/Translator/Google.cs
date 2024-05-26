@@ -21,7 +21,7 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translato
 
         protected override decimal GetCostsMeasure()
         {
-            return 1;
+            return 20;
         }
     }
 }
