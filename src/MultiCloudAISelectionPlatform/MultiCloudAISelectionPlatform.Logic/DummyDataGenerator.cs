@@ -21,7 +21,7 @@ namespace MultiCloudAISelectionPlatform.Logic
         {
             return new ComparisonRequest
             {
-                MetrikWeights = new MetrikWeights { AccuracyWeight = 1, CostsWeight = 1, ResponseTime = 1 }
+                MetrikWeights = new MetrikWeights { Accuracy = 1, Costs = 1, ResponseTime = 1 }
             };
         }
     }
