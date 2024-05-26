@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MultiCloudAISelectionPlatform.Common.Enums;
+﻿using MultiCloudAISelectionPlatform.Common.Enums;
 using MultiCloudAISelectionPlatform.Common.Models;
 
 namespace MultiCloudAISelectionPlatform.Logic
@@ -23,8 +21,6 @@ namespace MultiCloudAISelectionPlatform.Logic
         {
             return new ComparisonRequest
             {
-                Providers = new[] { "Azure", "Google", "AWS" },
-                Services = new[] { "Translator", "FaceDetector", "TextReader" },
                 MetrikWeights = new MetrikWeights { AccuracyWeight = 1, CostsWeight = 1, ResponseTime = 1 }
             };
         }
