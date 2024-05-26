@@ -4,17 +4,14 @@ using MultiCloudAISelectionPlatform.Logic.GA;
 
 namespace MultiCloudAISelectionPlatform.Logic
 {
-    public class ComparisonManager
+    public class ComparisonManager(MetrikWeights metrikWeights)
     {
-        private readonly Random _random;
+        private readonly Random _random = new();
+        private readonly MetrikWeights _metrikWeights = metrikWeights;
+        
         private GeneticAlgorithm<ComparisonResult>? _ga;
         private ComparisonResult[]? _initialComparisonResult;
         private ComparisonResult[]? _finalComparisonResults;
-
-        public ComparisonManager()
-        {
-            _random = new Random();
-        }
 
         public async Task<ComparisonResult[]> CalculateComparisonResults()
         {
