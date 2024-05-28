@@ -3,6 +3,7 @@
 @using MultiCloudAISelectionPlatform.Common.Enums
 @using MultiCloudAISelectionPlatform.Common.Models
 @using MultiCloudAISelectionPlatform.Logic
+@using System.Reflection
 @inject ResultService ResultService
 
 <h3 style="margin-bottom: 30px;">Cloud based AI Service Comparison</h3>
@@ -10,7 +11,7 @@
 <EditForm Model="@ComparisonRequest">
 
     <div style="padding-bottom: 50px;">
-        <RadzenLabel Text="AI Services" Component="DropDownMultipleChips" Style="width: 140px;; margin-right: 8px; vertical-align: middle;" />
+        <RadzenLabel Text="AI Services" Component="DropDownMultipleChips" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
         <RadzenDropDown @bind-Value=@SelectedAIServices Data=@AIServices
                         Multiple=false AllowClear=true Placeholder="Select AI Services" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
     </div>
@@ -19,6 +20,21 @@
         <RadzenLabel Text="Service Providers" Component="DropDownMultipleChips" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
         <RadzenDropDown @bind-Value=@SelectedCloudProviders Data=@CloudProviders
                         Multiple=true AllowClear=true Placeholder="Select Cloud Providers" SelectAllText="Select all items" Chips=true Style="width: 100%; max-width: 400px;" />
+    </div>
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="Accuracy Weight" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
+        <RadzenNumeric @bind-Value="Weights.Accuracy" Min="1" Step="0.1" Style="width: 300px;" />
+    </div>
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="Costs Weight" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
+        <RadzenNumeric @bind-Value="Weights.Costs" Min="1" Step="0.1" Style="width: 300px;" />
+    </div>
+
+    <div style="padding-bottom: 50px;">
+        <RadzenLabel Text="Response Time Weight" Style="width: 140px; margin-right: 8px; vertical-align: middle;" />
+        <RadzenNumeric @bind-Value="Weights.ResponseTime" Min="1" Step="0.1" Style="width: 300px;" />
     </div>
 
     <div style="padding-bottom: 50px;">
@@ -64,10 +80,10 @@
     </Template>
 </RadzenDataList>
 
-
 @code {
     public ComparisonResult[]? Result { get; set; }
     public ComparisonRequest ComparisonRequest { get; set; } = new ComparisonRequest();
+    public MetrikWeights Weights { get; set; } = new MetrikWeights();
 
     public static IEnumerable<Services> AIServices { get; set; } = Enum.GetValues(typeof(Services)).Cast<Services>();
     public static IEnumerable<Providers> CloudProviders { get; set; } = Enum.GetValues(typeof(Providers)).Cast<Providers>();
@@ -77,7 +93,7 @@
 
     private void OnAIServicesChanged(ChangeEventArgs e)
     {
-        var selectedOptions = (Services) e.Value!;
+        var selectedOptions = (Services)e.Value!;
 
         if (selectedOptions != default)
         {
@@ -98,6 +114,7 @@
     {
         ComparisonRequest.Service = SelectedAIServices;
         ComparisonRequest.Providers = SelectedCloudProviders.ToArray();
+        ComparisonRequest.MetrikWeights = Weights;
         Result = await ResultService.GetResults(ComparisonRequest);
     }
 }
