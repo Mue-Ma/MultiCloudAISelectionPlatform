@@ -1,6 +1,4 @@
-﻿using MultiCloudAISelectionPlatform.Common.Entities;
-
-namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
+﻿namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
 {
     internal class AWS : MeasureMetricsPerformerBase
     {

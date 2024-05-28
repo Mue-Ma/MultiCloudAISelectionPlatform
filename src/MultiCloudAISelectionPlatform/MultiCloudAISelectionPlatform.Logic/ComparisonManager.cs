@@ -67,7 +67,7 @@ namespace MultiCloudAISelectionPlatform.Logic
 
         private void Update()
         {
-            if(_ga == null) throw new Exception("No GA instance available, check GA is initialized!");
+            if (_ga == null) throw new Exception("No GA instance available, check GA is initialized!");
 
             _ga.NewGeneration();
             UpdateResult(_ga.BestGenes);
@@ -119,7 +119,7 @@ namespace MultiCloudAISelectionPlatform.Logic
         private bool IsBetterGene(ComparisonResult gene, ComparisonResult otherGene)
         {
             if (_initialComparisonResult == null) return false;
-            if(gene == otherGene) return true;
+            if (gene == otherGene) return true;
 
             double score = 0;
 
