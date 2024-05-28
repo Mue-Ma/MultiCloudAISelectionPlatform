@@ -8,7 +8,12 @@ namespace MultiCloudAISelectionPlatform.Logic
     {
         private readonly Random _random = new();
         private readonly MetrikWeights _metrikWeights = metrikWeights;
-        
+
+        private double _maxCosts => Convert.ToDouble(_initialComparisonResult?.Max(g => g.Costs) ?? 0);
+        private double _minCosts => Convert.ToDouble(_initialComparisonResult?.Min(g => g.Costs) ?? 0);
+        private double _maxResponseTime => _initialComparisonResult?.Max(g => g.ResponseTime) ?? 0;
+        private double _minResponseTime => _initialComparisonResult?.Min(g => g.ResponseTime) ?? 0;
+
         private GeneticAlgorithm<ComparisonResult>? _ga;
         private ComparisonResult[]? _initialComparisonResult;
         private ComparisonResult[]? _finalComparisonResults;
@@ -90,7 +95,7 @@ namespace MultiCloudAISelectionPlatform.Logic
 
             foreach (var gene in dna.Genes)
             {
-                if (!dna.Genes.Any(g => g.MeasureMetrik > gene.MeasureMetrik && Array.IndexOf(dna.Genes, g) < Array.IndexOf(dna.Genes, gene)))
+                if (!dna.Genes.Any(g => IsBetterGene(gene, g) && Array.IndexOf(dna.Genes, g) < Array.IndexOf(dna.Genes, gene)))
                 {
                     score += 1;
                 }
@@ -109,6 +114,31 @@ namespace MultiCloudAISelectionPlatform.Logic
             {
                 item.Rank = Array.IndexOf(_finalComparisonResults, item) + 1;
             }
+        }
+
+        private bool IsBetterGene(ComparisonResult gene, ComparisonResult otherGene)
+        {
+            if (_initialComparisonResult == null) return false;
+            if(gene == otherGene) return true;
+
+            double score = 0;
+
+            score += ((1 - GetPercantegeOfIntervall(_minCosts, _maxCosts, (double)gene.Costs))
+                - (1 - GetPercantegeOfIntervall(_minCosts, _maxCosts, (double)otherGene.Costs)))
+                * _metrikWeights.Costs;
+
+            score += (gene.Accuracy - otherGene.Accuracy) * _metrikWeights.Accuracy;
+
+            score += ((1 - GetPercantegeOfIntervall(_minResponseTime, _maxResponseTime, (double)gene.ResponseTime))
+                - (1 - GetPercantegeOfIntervall(_minResponseTime, _maxResponseTime, (double)otherGene.ResponseTime)))
+                * _metrikWeights.ResponseTime;
+
+            return score >= 0;
+        }
+
+        private static double GetPercantegeOfIntervall(double min, double max, double x)
+        {
+            return (x - min) / (max + min);
         }
     }
 }
