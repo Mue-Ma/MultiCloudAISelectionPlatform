@@ -1,12 +1,9 @@
-﻿namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
-{
-    internal class AWS : MeasureMetricsPerformerBase
-    {
-        public AWS()
-        {
-            Provider = Common.Enums.Providers.AWS;
-        }
+﻿using MultiCloudAISelectionPlatform.Common.Enums;
 
+namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
+{
+    internal class AWS(Providers provider = Providers.AWS) : MeasureMetricsPerformerBase(provider)
+    {
         protected override decimal GetCostsMeasure()
         {
             return 15;

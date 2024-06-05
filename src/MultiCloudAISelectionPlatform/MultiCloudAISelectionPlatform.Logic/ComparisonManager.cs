@@ -4,7 +4,7 @@ using MultiCloudAISelectionPlatform.Logic.GA;
 
 namespace MultiCloudAISelectionPlatform.Logic
 {
-    public class ComparisonManager(MetrikWeights metrikWeights)
+    public class ComparisonManager(MetrikWeights metrikWeights) : IDisposable
     {
         private readonly Random _random = new();
         private readonly MetrikWeights _metrikWeights = metrikWeights;
@@ -39,7 +39,7 @@ namespace MultiCloudAISelectionPlatform.Logic
 
             _ga = new GeneticAlgorithm<ComparisonResult>(
                    (int)Math.Pow(_initialComparisonResult.Length, _initialComparisonResult.Length),
-                   _initialComparisonResult.Length, _random, GetRandomCharacter, FitnessFunction, 5);
+                   _initialComparisonResult.Length, _random, GetRandomResult, FitnessFunction, 5);
 
             _finalComparisonResults = _ga.BestGenes;
         }
@@ -73,7 +73,7 @@ namespace MultiCloudAISelectionPlatform.Logic
             UpdateResult(_ga.BestGenes);
         }
 
-        private ComparisonResult GetRandomCharacter()
+        private ComparisonResult GetRandomResult()
         {
             if (_initialComparisonResult == null) throw new Exception("No metrics available, check metrics are initialized before init GA!");
 
@@ -139,6 +139,13 @@ namespace MultiCloudAISelectionPlatform.Logic
         private static double GetPercantegeOfIntervall(double min, double max, double x)
         {
             return (x - min) / (max + min);
+        }
+
+        public void Dispose()
+        {
+            _ga = null;
+            _initialComparisonResult = null;
+            _finalComparisonResults = null;
         }
     }
 }

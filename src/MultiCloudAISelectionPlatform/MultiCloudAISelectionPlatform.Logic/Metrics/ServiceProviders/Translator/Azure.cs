@@ -1,12 +1,9 @@
-﻿namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
-{
-    internal class Azure : MeasureMetricsPerformerBase
-    {
-        public Azure()
-        {
-            Provider = Common.Enums.Providers.Azure;
-        }
+﻿using MultiCloudAISelectionPlatform.Common.Enums;
 
+namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
+{
+    internal class Azure(Providers provider = Providers.Azure) : MeasureMetricsPerformerBase(provider)
+    {
         protected override decimal GetCostsMeasure()
         {
             return 10;

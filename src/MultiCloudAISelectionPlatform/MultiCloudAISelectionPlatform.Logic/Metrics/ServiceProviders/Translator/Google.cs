@@ -1,12 +1,9 @@
-﻿namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
-{
-    internal class Google : MeasureMetricsPerformerBase
-    {
-        public Google()
-        {
-            Provider = Common.Enums.Providers.Google;
-        }
+﻿using MultiCloudAISelectionPlatform.Common.Enums;
 
+namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders.Translator
+{
+    internal class Google(Providers provider = Providers.Google) : MeasureMetricsPerformerBase(provider)
+    {
         protected override decimal GetCostsMeasure()
         {
             return 20;

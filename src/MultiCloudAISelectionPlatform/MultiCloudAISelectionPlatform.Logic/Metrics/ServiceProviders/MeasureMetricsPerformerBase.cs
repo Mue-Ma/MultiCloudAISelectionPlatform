@@ -3,9 +3,9 @@ using MultiCloudAISelectionPlatform.Common.Enums;
 
 namespace MultiCloudAISelectionPlatform.Logic.Metrics.ServiceProviders
 {
-    internal abstract class MeasureMetricsPerformerBase
+    internal abstract class MeasureMetricsPerformerBase(Providers provider)
     {
-        public Providers Provider { get; protected set; }
+        public Providers Provider { get; private set; } = provider;
 
         public virtual async Task<MetricsResult> PerformMesurement(Services measuredService)
         {
