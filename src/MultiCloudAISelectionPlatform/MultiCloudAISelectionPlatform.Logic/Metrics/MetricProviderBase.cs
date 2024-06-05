@@ -20,7 +20,7 @@ namespace MultiCloudAISelectionPlatform.Logic.Metrics
             {
                 if (providerT != null && providers.Any(p => p.ToString().Equals(providerT.Name)))
                 {
-                    if (Activator.CreateInstance(providerT) is MeasureMetricsPerformerBase instance)
+                    if (Activator.CreateInstance(providerT, providers.First(p => p.ToString().Equals(providerT.Name))) is MeasureMetricsPerformerBase instance)
                     {
                         metrikMeasureTasks.Add(Task.Run(async () =>
                         {
