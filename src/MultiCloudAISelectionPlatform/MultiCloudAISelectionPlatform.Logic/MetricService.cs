@@ -11,8 +11,11 @@ namespace MultiCloudAISelectionPlatform.Logic
         {
             var providerT = GetMetricsProviderClass(service);
             var providerInstance = Activator.CreateInstance(providerT, service) as MetricProviderBase ?? throw new Exception($"Provider for {service} couldn't be created!");
-
-            providerInstance.StartAnalyzingServices(providers);
+           
+            while (providerInstance.MetricsResults.Count != providers.Length) 
+            {
+                providerInstance.StartAnalyzingServices(providers);
+            }
 
             return [.. providerInstance.MetricsResults];
         }
